@@ -29,7 +29,7 @@
   {
     "id": 8352,
     "category": "İlk Yardım ve Sağlık Bilgisi",
-    "question": "Olay yerindeki ilk yardımcının, bilinçleri kapalı ve solunumu olmayan dört farklı kazazedeye ilişkin tespitleri tabloda verilmiştir. Buna göre ilk yardımcı, numaralanmış kazazedelerden hangilerine “ağızdan buruna” suni solunum yapmalıdır?\nI. Ağız ve çevresinde yaralanma \nII. Bacakta açık kırık ve yaralanma \nIII. Göz çevresinde morluk ve kulağında kanama\nIV. Karın bölgesinde vücut eksenine dik olan açık yara\n",
+    "question": "Olay yerindeki ilk yardımcının, bilinçleri kapalı ve solunumu olmayan dört farklı kazazedeye ilişkin tespitleri aşağıda verilmiştir. Buna göre ilk yardımcı, numaralanmış kazazedelerden hangilerine “ağızdan buruna” suni solunum yapmalıdır?\nI. Ağız ve çevresinde yaralanma \nII. Bacakta açık kırık ve yaralanma \nIII. Göz çevresinde morluk ve kulağında kanama\nIV. Karın bölgesinde vücut eksenine dik olan açık yara\n",
     "image_url": null,
     "options": [
       { "text": "Yalnız I", "isTrue": true },
