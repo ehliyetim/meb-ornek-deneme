@@ -540,17 +540,33 @@
 
         function selectOption(index) {
             userAnswers[currentQuestion] = index;
+            const q = currentExam[currentQuestion];
             
             const options = document.querySelectorAll('.option');
             options.forEach((opt, i) => {
-                opt.classList.remove('selected');
+                opt.classList.remove('selected', 'correct', 'wrong');
+                
+                // Seçilen şık
                 if (i === index) {
                     opt.classList.add('selected');
+                    
+                    // Doğru mu yanlış mı kontrol et
+                    if (q.options[i].isTrue) {
+                        opt.classList.add('correct');
+                    } else {
+                        opt.classList.add('wrong');
+                        
+                        // Yanlış seçildiyse doğru cevabı da göster
+                        q.options.forEach((option, j) => {
+                            if (option.isTrue) {
+                                options[j].classList.add('correct');
+                            }
+                        });
+                    }
                 }
             });
             
             // Açıklamayı göster
-            const q = currentExam[currentQuestion];
             document.getElementById('descriptionText').textContent = q.description;
             document.getElementById('description').classList.add('show');
         }
