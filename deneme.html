@@ -617,9 +617,7 @@
             q.options.forEach((option, index) => {
                 const optionDiv = document.createElement('div');
                 optionDiv.className = 'option';
-                if (userAnswers[currentQuestion] === index) {
-                    optionDiv.classList.add('selected');
-                }
+                optionDiv.style.pointerEvents = 'auto'; // Yeni soruda tıklamayı tekrar aktif et
                 
                 const letter = String.fromCharCode(65 + index);
                 
@@ -640,8 +638,13 @@
                 optionsContainer.appendChild(optionDiv);
             });
             
-            // Açıklama gizle
-            document.getElementById('description').classList.remove('show');
+            // Eğer bu soruya daha önce cevap verildiyse, cevabı göster
+            if (userAnswers[currentQuestion] !== null) {
+                selectOption(userAnswers[currentQuestion]);
+            } else {
+                // Açıklama gizle
+                document.getElementById('description').classList.remove('show');
+            }
             
             // Butonları güncelle
             document.getElementById('prevBtn').disabled = currentQuestion === 0;
@@ -654,26 +657,24 @@
             const q = currentExam[currentQuestion];
             
             const options = document.querySelectorAll('.option');
+            const isCorrect = q.options[index].isTrue;
+            
             options.forEach((opt, i) => {
                 opt.classList.remove('selected', 'correct', 'wrong');
+                opt.style.pointerEvents = 'none'; // Seçim sonrası tıklamayı engelle
                 
                 // Seçilen şık
                 if (i === index) {
-                    opt.classList.add('selected');
-                    
-                    // Doğru mu yanlış mı kontrol et
-                    if (q.options[i].isTrue) {
+                    if (isCorrect) {
                         opt.classList.add('correct');
                     } else {
                         opt.classList.add('wrong');
-                        
-                        // Yanlış seçildiyse doğru cevabı da göster
-                        q.options.forEach((option, j) => {
-                            if (option.isTrue) {
-                                options[j].classList.add('correct');
-                            }
-                        });
                     }
+                }
+                
+                // Doğru cevabı her durumda göster
+                if (q.options[i].isTrue) {
+                    opt.classList.add('correct');
                 }
             });
             
