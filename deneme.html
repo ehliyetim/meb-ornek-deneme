@@ -147,6 +147,8 @@
         .media-container {
             margin: 25px 0;
             text-align: center;
+            position: relative;
+            min-height: 200px;
         }
 
         .media-container img {
@@ -154,12 +156,50 @@
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .media-container img.loaded {
+            opacity: 1;
         }
 
         .media-container video {
             max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .media-container iframe {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .media-container iframe.loaded {
+            opacity: 1;
+        }
+
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .loader.hidden {
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         .options {
@@ -225,6 +265,25 @@
             max-width: 150px;
             height: auto;
             border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .option-image.loaded {
+            opacity: 1;
+        }
+
+        .option .loader-small {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+
+        .option .loader-small.hidden {
+            display: none;
         }
 
         .description {
@@ -601,15 +660,39 @@
                     const videoId = q.image_url.includes('youtu.be') 
                         ? q.image_url.split('/').pop() 
                         : new URLSearchParams(new URL(q.image_url).search).get('v');
+                    
                     mediaContainer.innerHTML = `
+                        <div class="loader"></div>
                         <iframe width="100%" height="315" 
                             src="https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0&showinfo=0" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>`;
+                    
+                    // Video yüklendiğinde loader'ı gizle
+                    const iframe = mediaContainer.querySelector('iframe');
+                    const loader = mediaContainer.querySelector('.loader');
+                    iframe.onload = () => {
+                        loader.classList.add('hidden');
+                        iframe.classList.add('loaded');
+                    };
                 } else {
-                    mediaContainer.innerHTML = `<img src="${q.image_url}" alt="Soru görseli">`;
+                    mediaContainer.innerHTML = `
+                        <div class="loader"></div>
+                        <img src="${q.image_url}" alt="Soru görseli">`;
+                    
+                    // Görsel yüklendiğinde loader'ı gizle
+                    const img = mediaContainer.querySelector('img');
+                    const loader = mediaContainer.querySelector('.loader');
+                    img.onload = () => {
+                        loader.classList.add('hidden');
+                        img.classList.add('loaded');
+                    };
+                    img.onerror = () => {
+                        loader.classList.add('hidden');
+                        img.style.display = 'none';
+                    };
                 }
             }
             
@@ -628,8 +711,20 @@
                 if (option.text.includes('.png') || option.text.includes('.jpg')) {
                     optionDiv.innerHTML = `
                         <div class="option-letter">${letter}</div>
+                        <div class="loader-small"></div>
                         <img src="${option.text}" class="option-image" alt="Şık ${letter}">
                     `;
+                    
+                    // Şık görseli yüklendiğinde loader'ı gizle
+                    const img = optionDiv.querySelector('.option-image');
+                    const loader = optionDiv.querySelector('.loader-small');
+                    img.onload = () => {
+                        loader.classList.add('hidden');
+                        img.classList.add('loaded');
+                    };
+                    img.onerror = () => {
+                        loader.classList.add('hidden');
+                    };
                 } else {
                     optionDiv.innerHTML = `
                         <div class="option-letter">${letter}</div>
