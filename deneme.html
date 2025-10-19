@@ -150,6 +150,14 @@
             position: relative;
             min-height: 150px;
         }
+        /* Medya yoksa alanı tamamen daralt/gizle */
+        .media-container:empty {
+            display: none;
+            margin: 0;
+            min-height: 0;
+            padding: 0;
+        }
+
 
         .media-container img {
             max-width: 100%;
@@ -691,10 +699,13 @@
                         loader.classList.add('hidden');
                         img.classList.add('loaded');
                     };
+                   
                     img.onerror = () => {
                         loader.classList.add('hidden');
-                        img.style.display = 'none';
+    // Görsel yüklenmediyse konteyneri tamamen boşalt -> :empty devreye girer, boşluk kalkar
+                        mediaContainer.innerHTML = '';
                     };
+
                 }
             }
             
