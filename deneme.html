@@ -5,842 +5,447 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEB Sürücü Kursu Deneme Sınavı</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #ffffff;
-            color: #333;
-            line-height: 1.6;
+            background: #ffffff; color: #333; line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            color: white; padding: 30px 0; text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 30px;
         }
 
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.1em;
-            opacity: 0.95;
-        }
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        header p { font-size: 1.1em; opacity: 0.95; }
 
         .exam-selection {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; margin-bottom: 40px;
         }
 
         .exam-card {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            background: white; border: 2px solid #e0e0e0; border-radius: 15px;
+            padding: 30px; text-align: center; cursor: pointer; transition: .3s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
-
         .exam-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 20px rgba(102,126,234,.3);
             border-color: #667eea;
         }
-
-        .exam-card h2 {
-            color: #667eea;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-
-        .exam-card p {
-            color: #666;
-            font-size: 1em;
-            margin-bottom: 20px;
-        }
-
+        .exam-card h2 { color: #667eea; font-size: 1.8em; margin-bottom: 15px; }
+        .exam-card p { color: #666; font-size: 1em; margin-bottom: 20px; }
         .exam-card .question-count {
-            background: #f5f5f5;
-            padding: 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            color: #764ba2;
+            background: #f5f5f5; padding: 10px; border-radius: 8px; font-weight: bold; color: #764ba2;
         }
 
         .quiz-container {
-            display: none;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 40px;
-            margin-bottom: 30px;
+            display: none; background: white; border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 40px; margin-bottom: 30px;
         }
 
         .quiz-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #e0e0e0;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #e0e0e0;
         }
 
-        .quiz-info {
-            display: flex;
-            gap: 30px;
-        }
-
-        .info-item {
-            text-align: center;
-        }
-
-        .info-label {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .info-value {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #667eea;
-        }
+        .quiz-info { display: flex; gap: 30px; }
+        .info-item { text-align: center; }
+        .info-label { font-size: .9em; color: #666; margin-bottom: 5px; }
+        .info-value { font-size: 1.4em; font-weight: bold; color: #667eea; }
 
         .category-tag {
-            display: inline-block;
-            background: #764ba2;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin-bottom: 20px;
+            display: inline-block; background: #764ba2; color: #fff;
+            padding: 8px 16px; border-radius: 20px; font-size: .9em; margin-bottom: 20px;
         }
 
         .question {
-            font-size: 1.2em;
-            margin-bottom: 25px;
-            line-height: 1.8;
-            color: #333;
-            white-space: pre-line;
+            font-size: 1.2em; margin-bottom: 16px; line-height: 1.8; color: #333;
+            white-space: pre-line; /* \n algılansın */
         }
 
+        /* ---- SADECE BOŞLUĞU GİDEREN DÜZENLEMELER ---- */
         .media-container {
-            margin: 25px 0;
-            text-align: center;
+            margin: 0;            /* fazladan boşluk bırakma */
             position: relative;
-            min-height: 200px;
+            /* min-height: 200px;  <-- KALDIRILDI */
         }
+        .media-container:empty {
+            display: none;        /* içerik yoksa tamamen gizle */
+            margin: 0;
+        }
+        /* ---------------------------------------------- */
 
-        .media-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .media-container img, .media-container video {
+            max-width: 100%; height: auto; border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); opacity: 0; transition: opacity .3s ease;
         }
+        .media-container img.loaded { opacity: 1; }
 
-        .media-container img.loaded {
-            opacity: 1;
-        }
-
-        .media-container video {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .media-container iframe {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .media-container iframe.loaded {
-            opacity: 1;
-        }
+        .media-container iframe { width: 100%; border: 0; opacity: 0; transition: opacity .3s ease; }
+        .media-container iframe.loaded { opacity: 1; }
 
         .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
+            border: 4px solid #f3f3f3; border-top: 4px solid #667eea; border-radius: 50%;
+            width: 50px; height: 50px; animation: spin 1s linear infinite;
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;
         }
+        .loader.hidden { display: none; }
 
-        .loader.hidden {
-            display: none;
-        }
+        @keyframes spin { 0%{transform:translate(-50%,-50%) rotate(0)} 100%{transform:translate(-50%,-50%) rotate(360deg)} }
 
-        @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        .options {
-            display: grid;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
+        .options { display: grid; gap: 15px; margin: 16px 0 30px; }
         .option {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            background: #f8f9fa; border: 2px solid #e0e0e0; border-radius: 10px;
+            padding: 20px; cursor: pointer; transition: .3s; display: flex; align-items: center; gap: 15px;
         }
-
-        .option:hover {
-            background: #f0f0f0;
-            border-color: #667eea;
-        }
-
-        .option.selected {
-            background: #e8eaf6;
-            border-color: #667eea;
-            border-width: 3px;
-        }
-
-        .option.correct {
-            background: #e8f5e9;
-            border-color: #4caf50;
-        }
-
-        .option.wrong {
-            background: #ffebee;
-            border-color: #f44336;
-        }
+        .option:hover { background: #f0f0f0; border-color: #667eea; }
+        .option.selected { background: #e8eaf6; border-color: #667eea; border-width: 3px; }
+        .option.correct { background: #e8f5e9; border-color: #4caf50; }
+        .option.wrong { background: #ffebee; border-color: #f44336; }
 
         .option-letter {
-            background: white;
-            border: 2px solid #667eea;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #667eea;
-            flex-shrink: 0;
+            background: #fff; border: 2px solid #667eea; border-radius: 50%;
+            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+            font-weight: bold; color: #667eea; flex-shrink: 0;
         }
 
-        .option-text {
-            flex: 1;
-            font-size: 1.05em;
-            white-space: pre-line;
-        }
+        .option-text { flex: 1; font-size: 1.05em; white-space: pre-line; }
 
-        .option-image {
-            max-width: 150px;
-            height: auto;
-            border-radius: 8px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .option-image.loaded {
-            opacity: 1;
-        }
-
+        .option-image { max-width: 150px; height: auto; border-radius: 8px; opacity: 0; transition: opacity .3s ease; }
+        .option-image.loaded { opacity: 1; }
         .option .loader-small {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
+            border: 3px solid #f3f3f3; border-top: 3px solid #667eea; border-radius: 50%;
+            width: 30px; height: 30px; animation: spin 1s linear infinite;
         }
-
-        .option .loader-small.hidden {
-            display: none;
-        }
+        .option .loader-small.hidden { display: none; }
 
         .description {
-            background: #f0f4ff;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-            display: none;
-            white-space: pre-line;
+            background: #f0f4ff; border-left: 4px solid #667eea; padding: 20px; margin-top: 10px;
+            border-radius: 8px; display: none; white-space: pre-line;
         }
+        .description.show { display: block; }
+        .description h4 { color: #667eea; margin-bottom: 10px; }
 
-        .description.show {
-            display: block;
-        }
-
-        .description h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            background: #e0e0e0;
-            color: #333;
-        }
-
-        .btn-secondary:hover {
-            background: #d0d0d0;
-        }
-
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+        .navigation { display: flex; justify-content: space-between; gap: 15px; margin-top: 20px; }
+        .btn { padding: 15px 30px; border: none; border-radius: 8px; font-size: 1em; cursor: pointer; transition: .3s; font-weight: bold; }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(102,126,234,.4); }
+        .btn-secondary { background: #e0e0e0; color: #333; }
+        .btn-secondary:hover { background: #d0d0d0; }
+        .btn:disabled { opacity: .5; cursor: not-allowed; }
 
         .results {
-            display: none;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 40px;
-            text-align: center;
+            display: none; background: white; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 40px; text-align: center;
         }
+        .results h2 { font-size: 2.5em; margin-bottom: 30px; }
+        .score { font-size: 3em; font-weight: bold; margin: 20px 0; }
 
-        .results h2 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
-        }
-
-        .score {
-            font-size: 3em;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .stat-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 5px;
-        }
-
-        .stat-value {
-            font-size: 2em;
-            font-weight: bold;
-        }
-
-        .stat-card.correct .stat-value {
-            color: #4caf50;
-        }
-
-        .stat-card.wrong .stat-value {
-            color: #f44336;
-        }
-
-        .stat-card.empty .stat-value {
-            color: #ff9800;
-        }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
+        .stat-card { background: #f8f9fa; padding: 20px; border-radius: 10px; }
+        .stat-label { color: #666; font-size: .9em; margin-bottom: 5px; }
+        .stat-value { font-size: 2em; font-weight: bold; }
+        .stat-card.correct .stat-value { color: #4caf50; }
+        .stat-card.wrong .stat-value { color: #f44336; }
+        .stat-card.empty .stat-value { color: #ff9800; }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-
-            header {
-                padding: 20px 0;
-            }
-
-            header h1 {
-                font-size: 1.5em;
-            }
-
-            header p {
-                font-size: 0.9em;
-            }
-
-            .exam-selection {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .exam-card {
-                padding: 20px;
-            }
-
-            .exam-card h2 {
-                font-size: 1.4em;
-            }
-
-            .quiz-container {
-                padding: 15px;
-            }
-
-            .quiz-header {
-                flex-direction: column;
-                gap: 15px;
-                align-items: stretch;
-            }
-
-            .quiz-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .question {
-                font-size: 1em;
-            }
-
-            .media-container iframe {
-                height: 200px;
-            }
-
-            .option {
-                padding: 15px;
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .option-letter {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9em;
-            }
-
-            .option-text {
-                font-size: 0.95em;
-            }
-
-            .option-image {
-                max-width: 100%;
-            }
-
-            .navigation {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 12px;
-            }
-
-            .results {
-                padding: 20px;
-            }
-
-            .results h2 {
-                font-size: 1.8em;
-            }
-
-            .score {
-                font-size: 2em;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
+            .container { padding: 10px; }
+            header { padding: 20px 0; }
+            header h1 { font-size: 1.5em; }
+            header p { font-size: .9em; }
+            .exam-selection { grid-template-columns: 1fr; gap: 15px; }
+            .exam-card { padding: 20px; }
+            .exam-card h2 { font-size: 1.4em; }
+            .quiz-container { padding: 15px; }
+            .quiz-header { flex-direction: column; gap: 15px; align-items: stretch; }
+            .quiz-info { flex-direction: column; gap: 10px; }
+            .question { font-size: 1em; }
+            .options { margin-top: 12px; }
+            .navigation { flex-direction: column; }
+            .btn { width: 100%; padding: 12px; }
+            .results { padding: 20px; }
+            .results h2 { font-size: 1.8em; }
+            .score { font-size: 2em; }
+            .stats { grid-template-columns: 1fr; gap: 15px; }
         }
 
         @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.3em;
-            }
-
-            .exam-card h2 {
-                font-size: 1.2em;
-            }
-
-            .quiz-container {
-                padding: 10px;
-            }
-
-            .question {
-                font-size: 0.95em;
-            }
-
-            .media-container iframe {
-                height: 180px;
-            }
-
-            .results h2 {
-                font-size: 1.5em;
-            }
-
-            .score {
-                font-size: 1.8em;
-            }
-
-            .stat-value {
-                font-size: 1.5em;
-            }
+            header h1 { font-size: 1.3em; }
+            .exam-card h2 { font-size: 1.2em; }
+            .quiz-container { padding: 10px; }
+            .question { font-size: .95em; }
+            .results h2 { font-size: 1.5em; }
+            .score { font-size: 1.8em; }
+            .stat-value { font-size: 1.5em; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🚗 MEB Sürücü Kursu Deneme Sınavları</h1>
-            <p>Ehliyet sınavına hazırlanın!</p>
-        </div>
-    </header>
-
+<header>
     <div class="container">
-        <div id="examSelection" class="exam-selection">
-            <div class="exam-card" onclick="startExam('past0')">
-                <h2>📝 MEB Örnek Deneme 1</h2>
-                <p>İlk deneme sınavı</p>
-                <div class="question-count">50 Soru</div>
-            </div>
-            <div class="exam-card" onclick="startExam('past30')">
-                <h2>📝 MEB Örnek Deneme 2</h2>
-                <p>İkinci deneme sınavı</p>
-                <div class="question-count">50 Soru</div>
-            </div>
+        <h1>🚗 MEB Sürücü Kursu Deneme Sınavları</h1>
+        <p>Ehliyet sınavına hazırlanın!</p>
+    </div>
+</header>
+
+<div class="container">
+    <div id="examSelection" class="exam-selection">
+        <div class="exam-card" onclick="startExam('past0')">
+            <h2>📝 MEB Örnek Deneme 1</h2>
+            <p>İlk deneme sınavı</p>
+            <div class="question-count">50 Soru</div>
         </div>
-
-        <div id="quizContainer" class="quiz-container">
-            <div class="quiz-header">
-                <div class="quiz-info">
-                    <div class="info-item">
-                        <div class="info-label">Soru</div>
-                        <div class="info-value" id="questionNumber">1/50</div>
-                    </div>
-                </div>
-                <button class="btn btn-secondary" onclick="backToMenu()">Ana Menü</button>
-            </div>
-
-            <div class="category-tag" id="category"></div>
-
-            <div class="question" id="questionText"></div>
-
-            <div class="media-container" id="mediaContainer"></div>
-
-            <div class="options" id="options"></div>
-
-            <div class="description" id="description">
-                <h4>📖 Açıklama</h4>
-                <p id="descriptionText"></p>
-            </div>
-
-            <div class="navigation">
-                <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">⬅ Önceki</button>
-                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Sonraki ➡</button>
-                <button class="btn btn-primary" id="finishBtn" onclick="finishExam()" style="display: none;">Sınavı Bitir</button>
-            </div>
-        </div>
-
-        <div id="results" class="results">
-            <h2 id="resultTitle">🎉 Sınav Sonuçları</h2>
-            <div class="score" id="scoreText"></div>
-            <div class="stats">
-                <div class="stat-card correct">
-                    <div class="stat-label">Doğru</div>
-                    <div class="stat-value" id="correctCount">0</div>
-                </div>
-                <div class="stat-card wrong">
-                    <div class="stat-label">Yanlış</div>
-                    <div class="stat-value" id="wrongCount">0</div>
-                </div>
-                <div class="stat-card empty">
-                    <div class="stat-label">Boş</div>
-                    <div class="stat-value" id="emptyCount">0</div>
-                </div>
-            </div>
-            <button class="btn btn-primary" onclick="backToMenu()" style="margin-top: 30px;">Ana Menüye Dön</button>
+        <div class="exam-card" onclick="startExam('past30')">
+            <h2>📝 MEB Örnek Deneme 2</h2>
+            <p>İkinci deneme sınavı</p>
+            <div class="question-count">50 Soru</div>
         </div>
     </div>
 
-    <script>
-        let currentExam = [];
-        let currentQuestion = 0;
-        let userAnswers = [];
-        let examData = {
-            past0: [],
-            past30: []
-        };
+    <div id="quizContainer" class="quiz-container">
+        <div class="quiz-header">
+            <div class="quiz-info">
+                <div class="info-item">
+                    <div class="info-label">Soru</div>
+                    <div class="info-value" id="questionNumber">1/50</div>
+                </div>
+            </div>
+            <button class="btn btn-secondary" onclick="backToMenu()">Ana Menü</button>
+        </div>
 
-        // JSON dosyalarını yükle
-        async function loadExamData() {
-            try {
-                const response0 = await fetch('past0.json');
-                const response30 = await fetch('past30.json');
-                examData.past0 = await response0.json();
-                examData.past30 = await response30.json();
-            } catch (error) {
-                console.error('Sınav verileri yüklenirken hata:', error);
-            }
+        <div class="category-tag" id="category"></div>
+        <div class="question" id="questionText"></div>
+
+        <!-- boşken otomatik gizlenecek -->
+        <div class="media-container" id="mediaContainer"></div>
+
+        <div class="options" id="options"></div>
+
+        <div class="description" id="description">
+            <h4>📖 Açıklama</h4>
+            <p id="descriptionText"></p>
+        </div>
+
+        <div class="navigation">
+            <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">⬅ Önceki</button>
+            <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Sonraki ➡</button>
+            <button class="btn btn-primary" id="finishBtn" onclick="finishExam()" style="display:none;">Sınavı Bitir</button>
+        </div>
+    </div>
+
+    <div id="results" class="results">
+        <h2 id="resultTitle">🎉 Sınav Sonuçları</h2>
+        <div class="score" id="scoreText"></div>
+        <div class="stats">
+            <div class="stat-card correct">
+                <div class="stat-label">Doğru</div>
+                <div class="stat-value" id="correctCount">0</div>
+            </div>
+            <div class="stat-card wrong">
+                <div class="stat-label">Yanlış</div>
+                <div class="stat-value" id="wrongCount">0</div>
+            </div>
+            <div class="stat-card empty">
+                <div class="stat-label">Boş</div>
+                <div class="stat-value" id="emptyCount">0</div>
+            </div>
+        </div>
+        <button class="btn btn-primary" onclick="backToMenu()" style="margin-top:30px;">Ana Menüye Dön</button>
+    </div>
+</div>
+
+<script>
+    let currentExam = [];
+    let currentQuestion = 0;
+    let userAnswers = [];
+    let examData = { past0: [], past30: [] };
+
+    async function loadExamData() {
+        try {
+            const response0 = await fetch('past0.json');
+            const response30 = await fetch('past30.json');
+            examData.past0 = await response0.json();
+            examData.past30 = await response30.json();
+        } catch (error) {
+            console.error('Sınav verileri yüklenirken hata:', error);
         }
+    }
 
-        function startExam(examType) {
-            currentExam = examData[examType];
-            currentQuestion = 0;
-            userAnswers = new Array(currentExam.length).fill(null);
-            
-            document.getElementById('examSelection').style.display = 'none';
-            document.getElementById('quizContainer').style.display = 'block';
-            document.getElementById('results').style.display = 'none';
-            
-            loadQuestion();
-        }
+    function startExam(examType) {
+        currentExam = examData[examType];
+        currentQuestion = 0;
+        userAnswers = new Array(currentExam.length).fill(null);
 
-        function loadQuestion() {
-            const q = currentExam[currentQuestion];
-            
-            document.getElementById('questionNumber').textContent = `${currentQuestion + 1}/${currentExam.length}`;
-            document.getElementById('category').textContent = q.category;
-            document.getElementById('questionText').textContent = q.question;
-            
-            // Medya yükleme
-            const mediaContainer = document.getElementById('mediaContainer');
-            mediaContainer.innerHTML = '';
-            
-            if (q.image_url) {
-                if (q.image_url.includes('youtube.com') || q.image_url.includes('youtu.be')) {
-                    const videoId = q.image_url.includes('youtu.be') 
-                        ? q.image_url.split('/').pop() 
-                        : new URLSearchParams(new URL(q.image_url).search).get('v');
-                    
-                    mediaContainer.innerHTML = `
-                        <div class="loader"></div>
-                        <iframe width="100%" height="315" 
-                            src="https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0&showinfo=0" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>`;
-                    
-                    // Video yüklendiğinde loader'ı gizle
-                    const iframe = mediaContainer.querySelector('iframe');
-                    const loader = mediaContainer.querySelector('.loader');
-                    iframe.onload = () => {
-                        loader.classList.add('hidden');
-                        iframe.classList.add('loaded');
-                    };
-                } else {
-                    mediaContainer.innerHTML = `
-                        <div class="loader"></div>
-                        <img src="${q.image_url}" alt="Soru görseli">`;
-                    
-                    // Görsel yüklendiğinde loader'ı gizle
-                    const img = mediaContainer.querySelector('img');
-                    const loader = mediaContainer.querySelector('.loader');
-                    img.onload = () => {
-                        loader.classList.add('hidden');
-                        img.classList.add('loaded');
-                    };
-                    img.onerror = () => {
-                        loader.classList.add('hidden');
-                        img.style.display = 'none';
-                    };
-                }
-            }
-            
-            // Şıkları yükleme
-            const optionsContainer = document.getElementById('options');
-            optionsContainer.innerHTML = '';
-            
-            q.options.forEach((option, index) => {
-                const optionDiv = document.createElement('div');
-                optionDiv.className = 'option';
-                optionDiv.style.pointerEvents = 'auto'; // Yeni soruda tıklamayı tekrar aktif et
-                
-                const letter = String.fromCharCode(65 + index);
-                
-                // Şık görsel mi metin mi kontrol et
-                if (option.text.includes('.png') || option.text.includes('.jpg')) {
-                    optionDiv.innerHTML = `
-                        <div class="option-letter">${letter}</div>
-                        <div class="loader-small"></div>
-                        <img src="${option.text}" class="option-image" alt="Şık ${letter}">
-                    `;
-                    
-                    // Şık görseli yüklendiğinde loader'ı gizle
-                    const img = optionDiv.querySelector('.option-image');
-                    const loader = optionDiv.querySelector('.loader-small');
-                    img.onload = () => {
-                        loader.classList.add('hidden');
-                        img.classList.add('loaded');
-                    };
-                    img.onerror = () => {
-                        loader.classList.add('hidden');
-                    };
-                } else {
-                    optionDiv.innerHTML = `
-                        <div class="option-letter">${letter}</div>
-                        <div class="option-text">${option.text}</div>
-                    `;
-                }
-                
-                optionDiv.onclick = () => selectOption(index);
-                optionsContainer.appendChild(optionDiv);
-            });
-            
-            // Eğer bu soruya daha önce cevap verildiyse, cevabı göster
-            if (userAnswers[currentQuestion] !== null) {
-                selectOption(userAnswers[currentQuestion]);
+        document.getElementById('examSelection').style.display = 'none';
+        document.getElementById('quizContainer').style.display = 'block';
+        document.getElementById('results').style.display = 'none';
+
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        const q = currentExam[currentQuestion];
+
+        document.getElementById('questionNumber').textContent = `${currentQuestion + 1}/${currentExam.length}`;
+        document.getElementById('category').textContent = q.category || '';
+        document.getElementById('questionText').textContent = q.question || '';
+
+        const mediaContainer = document.getElementById('mediaContainer');
+        mediaContainer.innerHTML = ''; // boş bırak; :empty -> gizle
+
+        if (q.image_url && q.image_url.trim() !== '') {
+            // içerik varsa loader ve medya eklenir; :empty olmaz, görünür
+            if (q.image_url.includes('youtube.com') || q.image_url.includes('youtu.be')) {
+                const videoId = q.image_url.includes('youtu.be')
+                    ? q.image_url.split('/').pop()
+                    : new URLSearchParams(new URL(q.image_url).search).get('v');
+
+                mediaContainer.innerHTML = `
+                    <div class="loader"></div>
+                    <iframe
+                        src="https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0&showinfo=0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>`;
+                const iframe = mediaContainer.querySelector('iframe');
+                const loader = mediaContainer.querySelector('.loader');
+                iframe.onload = () => {
+                    loader.classList.add('hidden');
+                    iframe.classList.add('loaded');
+                };
             } else {
-                // Açıklama gizle
-                document.getElementById('description').classList.remove('show');
-            }
-            
-            // Butonları güncelle
-            document.getElementById('prevBtn').disabled = currentQuestion === 0;
-            document.getElementById('nextBtn').style.display = currentQuestion === currentExam.length - 1 ? 'none' : 'inline-block';
-            document.getElementById('finishBtn').style.display = currentQuestion === currentExam.length - 1 ? 'inline-block' : 'none';
-        }
-
-        function selectOption(index) {
-            userAnswers[currentQuestion] = index;
-            const q = currentExam[currentQuestion];
-            
-            const options = document.querySelectorAll('.option');
-            const isCorrect = q.options[index].isTrue;
-            
-            options.forEach((opt, i) => {
-                opt.classList.remove('selected', 'correct', 'wrong');
-                opt.style.pointerEvents = 'none'; // Seçim sonrası tıklamayı engelle
-                
-                // Seçilen şık
-                if (i === index) {
-                    if (isCorrect) {
-                        opt.classList.add('correct');
-                    } else {
-                        opt.classList.add('wrong');
-                    }
-                }
-                
-                // Doğru cevabı her durumda göster
-                if (q.options[i].isTrue) {
-                    opt.classList.add('correct');
-                }
-            });
-            
-            // Açıklamayı göster
-            document.getElementById('descriptionText').textContent = q.description;
-            document.getElementById('description').classList.add('show');
-        }
-
-        function previousQuestion() {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                loadQuestion();
+                mediaContainer.innerHTML = `
+                    <div class="loader"></div>
+                    <img src="${q.image_url}" alt="Soru görseli">`;
+                const img = mediaContainer.querySelector('img');
+                const loader = mediaContainer.querySelector('.loader');
+                img.onload = () => {
+                    loader.classList.add('hidden');
+                    img.classList.add('loaded');
+                };
+                img.onerror = () => {
+                    loader.classList.add('hidden');
+                    img.remove(); // img yüklenmezse konteyner tekrar :empty olur ve gizlenir
+                };
             }
         }
 
-        function nextQuestion() {
-            if (currentQuestion < currentExam.length - 1) {
-                currentQuestion++;
-                loadQuestion();
-            }
-        }
+        const optionsContainer = document.getElementById('options');
+        optionsContainer.innerHTML = '';
 
-        function finishExam() {
-            let correct = 0, wrong = 0, empty = 0;
-            
-            userAnswers.forEach((answer, index) => {
-                if (answer === null) {
-                    empty++;
-                } else if (currentExam[index].options[answer].isTrue) {
-                    correct++;
-                } else {
-                    wrong++;
-                }
-            });
-            
-            const totalScore = correct * 2;
-            const isPassed = totalScore >= 70;
-            
-            document.getElementById('quizContainer').style.display = 'none';
-            document.getElementById('results').style.display = 'block';
-            
-            const resultTitle = document.getElementById('resultTitle');
-            const scoreText = document.getElementById('scoreText');
-            
-            if (isPassed) {
-                resultTitle.textContent = '🎉 Tebrikler! Geçtiniz!';
-                resultTitle.style.color = '#4caf50';
-                scoreText.style.color = '#4caf50';
+        q.options.forEach((option, index) => {
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'option';
+            optionDiv.style.pointerEvents = 'auto';
+
+            const letter = String.fromCharCode(65 + index);
+
+            if (option.text && (option.text.endsWith('.png') || option.text.endsWith('.jpg') || option.text.endsWith('.jpeg') || option.text.endsWith('.webp'))) {
+                optionDiv.innerHTML = `
+                    <div class="option-letter">${letter}</div>
+                    <div class="loader-small"></div>
+                    <img src="${option.text}" class="option-image" alt="Şık ${letter}">
+                `;
+                const img = optionDiv.querySelector('.option-image');
+                const loader = optionDiv.querySelector('.loader-small');
+                img.onload = () => { loader.classList.add('hidden'); img.classList.add('loaded'); };
+                img.onerror = () => { loader.classList.add('hidden'); };
             } else {
-                resultTitle.textContent = '😔 Maalesef Kaldınız';
-                resultTitle.style.color = '#f44336';
-                scoreText.style.color = '#f44336';
+                optionDiv.innerHTML = `
+                    <div class="option-letter">${letter}</div>
+                    <div class="option-text">${option.text}</div>
+                `;
             }
-            
-            scoreText.textContent = `${totalScore} Puan`;
-            document.getElementById('correctCount').textContent = correct;
-            document.getElementById('wrongCount').textContent = wrong;
-            document.getElementById('emptyCount').textContent = empty;
+
+            optionDiv.onclick = () => selectOption(index);
+            optionsContainer.appendChild(optionDiv);
+        });
+
+        if (userAnswers[currentQuestion] !== null) {
+            selectOption(userAnswers[currentQuestion]);
+        } else {
+            document.getElementById('description').classList.remove('show');
         }
 
-        function backToMenu() {
-            document.getElementById('examSelection').style.display = 'grid';
-            document.getElementById('quizContainer').style.display = 'none';
-            document.getElementById('results').style.display = 'none';
+        document.getElementById('prevBtn').disabled = currentQuestion === 0;
+        document.getElementById('nextBtn').style.display = currentQuestion === currentExam.length - 1 ? 'none' : 'inline-block';
+        document.getElementById('finishBtn').style.display = currentQuestion === currentExam.length - 1 ? 'inline-block' : 'none';
+    }
+
+    function selectOption(index) {
+        userAnswers[currentQuestion] = index;
+        const q = currentExam[currentQuestion];
+
+        const options = document.querySelectorAll('.option');
+        const isCorrect = q.options[index].isTrue;
+
+        options.forEach((opt, i) => {
+            opt.classList.remove('selected', 'correct', 'wrong');
+            opt.style.pointerEvents = 'none';
+            if (i === index) {
+                if (isCorrect) opt.classList.add('correct'); else opt.classList.add('wrong');
+            }
+            if (q.options[i].isTrue) opt.classList.add('correct');
+        });
+
+        document.getElementById('descriptionText').textContent = q.description || '';
+        document.getElementById('description').classList.add('show');
+    }
+
+    function previousQuestion() {
+        if (currentQuestion > 0) { currentQuestion--; loadQuestion(); }
+    }
+    function nextQuestion() {
+        if (currentQuestion < currentExam.length - 1) { currentQuestion++; loadQuestion(); }
+    }
+
+    function finishExam() {
+        let correct = 0, wrong = 0, empty = 0;
+        userAnswers.forEach((answer, i) => {
+            if (answer === null) empty++;
+            else if (currentExam[i].options[answer].isTrue) correct++;
+            else wrong++;
+        });
+
+        const totalScore = correct * 2;
+        const isPassed = totalScore >= 70;
+
+        document.getElementById('quizContainer').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+
+        const resultTitle = document.getElementById('resultTitle');
+        const scoreText = document.getElementById('scoreText');
+
+        if (isPassed) {
+            resultTitle.textContent = '🎉 Tebrikler! Geçtiniz!';
+            resultTitle.style.color = '#4caf50';
+            scoreText.style.color = '#4caf50';
+        } else {
+            resultTitle.textContent = '😔 Maalesef Kaldınız';
+            resultTitle.style.color = '#f44336';
+            scoreText.style.color = '#f44336';
         }
 
-        // Sayfa yüklendiğinde veriyi yükle
-        loadExamData();
-    </script>
+        scoreText.textContent = `${totalScore} Puan`;
+        document.getElementById('correctCount').textContent = correct;
+        document.getElementById('wrongCount').textContent = wrong;
+        document.getElementById('emptyCount').textContent = empty;
+    }
+
+    function backToMenu() {
+        document.getElementById('examSelection').style.display = 'grid';
+        document.getElementById('quizContainer').style.display = 'none';
+        document.getElementById('results').style.display = 'none';
+    }
+
+    loadExamData();
+</script>
 </body>
 </html>
