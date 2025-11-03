@@ -12,7 +12,7 @@
       { "text": "Trafik kurallarına uygun olarak derhal durmalı", "isTrue": true }
     ],
     "description": "Araç gösterge panelinde bir arıza ikaz ışığı yandığında, bu durum ciddi bir mekanik soruna işaret edebilir. Güvenliği tehlikeye atmamak ve araca daha fazla zarar vermemek için sürücü, aracını trafik kurallarına uygun olarak derhal güvenli bir şekilde durdurmalıdır."
-  },
+  },https://ehliyetim.github.io/develop/anim/hararet_araba.mp4
   {
     "id": 8351,
     "category": "İlk Yardım ve Sağlık Bilgisi",
@@ -264,7 +264,7 @@
     "id": 8370,
     "category": "Trafik ve Çevre Bilgisi",
     "question": "Videoya göre, kırmızı otomobil sürücüsü numaralanmış hatalardan hangilerini yapmaktadır?\nI. Kırmızı ışıkta geçmektedir.\nII. Sağdan gelen yeşil araca ilk geçiş hakkını vermemektedir.\nIII. Girişi olmayan yol bölümüne girmektedir.",
-    "image_url": "https://youtu.be/EhD2Ey4b7Y8",
+    "image_url": "https://ehliyetim.github.io/develop/anim/girisi_olmayan_yol.mp4",
     "options": [
       { "text": "I ve II", "isTrue": false },
       { "text": "I ve III", "isTrue": true },
@@ -316,7 +316,7 @@
     "id": 8374,
     "category": "Trafik Adabı",
     "question": "Videoya göre, kırmızı otomobil sürücüsü nasıl davranmalıdır?",
-    "image_url": "https://youtu.be/stnBpnHQik0",
+    "image_url": "https://ehliyetim.github.io/develop/anim/otobus_kirmizi_arac.mp4",
     "options": [
       { "text": "Önündeki aracın sağından yoluna devam etmeli", "isTrue": false },
       { "text": "Solundaki şeride geçmeli", "isTrue": false },
@@ -511,7 +511,7 @@
     "id": 8389,
     "category": "Trafik ve Çevre Bilgisi",
     "question": "Videoya göre hangisinin yapılması doğru olur?",
-    "image_url": "https://youtu.be/yRXLDQJyxNI",
+    "image_url": "https://ehliyetim.github.io/develop/anim/siyah_beyaz_araba.mp4",
     "options": [
       { "text": "Beyaz otomobil sürücüsünün beklemesi", "isTrue": true },
       { "text": "Sarı otomobil sürücüsünün hızlanması", "isTrue": false },
@@ -537,7 +537,7 @@
     "id": 8391,
     "category": "Trafik ve Çevre Bilgisi",
     "question": "Videodaki tehlikeli durum, sürücülerin hangi kuralı ihlal etmeleri sonucunda oluşmuştur?",
-    "image_url": "https://youtu.be/a6e3aPiM7ao",
+    "image_url": "https://ehliyetim.github.io/develop/anim/serit_degistirme.mp4",
     "options": [
       { "text": "Takip mesafesi kuralını", "isTrue": false },
       { "text": "Geçme kuralını", "isTrue": false },
