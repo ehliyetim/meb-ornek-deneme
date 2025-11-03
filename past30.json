@@ -250,7 +250,7 @@
     "id": 8419,
     "category": "Trafik Adabı",
     "question": "Motosiklet sürücüsü için numaralanmış ifadelerden hangileri kesinlikle söylenebilir?\n\nI. Can ve mal güvenliğini tehlikeye attığı\nII. İleri sürüş tekniklerine sahip olduğu\nIII. Şerit takip kurallarına uyduğu\nIV. Geçme kurallarına uymadığı",
-    "image_url": "https://youtu.be/jEPd5N8LQGg",
+    "image_url": "https://ehliyetim.github.io/develop/anim/motor_surucusu.mp4",
     "options": [
       { "text": "I ve II", "isTrue": false },
       { "text": "I ve IV", "isTrue": true },
@@ -276,7 +276,7 @@
     "id": 8421,
     "category": "Trafik ve Çevre",
     "question": "Videodaki kazayla ilgili hangisi kesinlikle söylenir?",
-    "image_url": "https://youtu.be/sr4gPZyLqe8",
+    "image_url": "https://ehliyetim.github.io/develop/anim/yagmur_kaza_arac.mp4",
     "options": [
       { "text": "Yeşil araç sürücüsünün ani firen yapması kazaya sebep olmuştur.", "isTrue": false },
       { "text": "Mavi araç sürücüsünün hatalı geçme yapması kazaya sebep olmuştur.", "isTrue": true },
@@ -302,7 +302,7 @@
     "id": 8423,
     "category": "Trafik Adabı",
     "question": "Videoya göre, beyaz otomobilin sürücüsü için hangisi kesinlikle söylenir?",
-    "image_url": "https://youtu.be/BzbWefaWQUk",
+    "image_url": "https://ehliyetim.github.io/develop/anim/tiri_ani_gecis.mp4",
     "options": [
       { "text": "Uyuşturucu veya uyarıcı madde etkisinde araç kullandığı", "isTrue": false },
       { "text": "Uykusuz ve yorgun olarak araç kullandığı", "isTrue": false },
@@ -315,7 +315,7 @@
     "id": 8424,
     "category": "Trafik ve Çevre",
     "question": "Videoya göre, sürücü nasıl bir tehlikenin olabileceğini düşünmelidir?",
-    "image_url": "https://youtu.be/uacuQV6rEos",
+    "image_url": "https://ehliyetim.github.io/develop/anim/petrol_arac.mp4",
     "options": [
       { "text": "Rüzgar nedeniyle direksiyon hakimiyetini kaybedebileceğini", "isTrue": false },
       { "text": "Orta şeritteki otomobilin ani fren yapabileceğini", "isTrue": false },
@@ -614,7 +614,7 @@
     "id": 8447,
     "category": "Araç Tekniği",
     "question": "Videodaki sarı minibüsle ilgili hangisi kesinlikle söylenir?",
-    "image_url": "https://youtu.be/95R0lH0xHhc",
+    "image_url": "https://ehliyetim.github.io/develop/anim/duman_arac.mp4",
     "options": [
       { "text": "Egzozunun arızalı olduğu", "isTrue": false },
       { "text": "Motorunun düzensiz çalıştığı", "isTrue": true },
