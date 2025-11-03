@@ -12,7 +12,7 @@
       { "text": "Trafik kurallarına uygun olarak derhal durmalı", "isTrue": true }
     ],
     "description": "Araç gösterge panelinde bir arıza ikaz ışığı yandığında, bu durum ciddi bir mekanik soruna işaret edebilir. Güvenliği tehlikeye atmamak ve araca daha fazla zarar vermemek için sürücü, aracını trafik kurallarına uygun olarak derhal güvenli bir şekilde durdurmalıdır."
-  },https://ehliyetim.github.io/develop/anim/hararet_araba.mp4
+  },
   {
     "id": 8351,
     "category": "İlk Yardım ve Sağlık Bilgisi",
