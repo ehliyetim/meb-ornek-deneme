@@ -29,7 +29,7 @@
     "id": 8402,
     "category": "İlk Yardım",
     "question": "Trafik kazası sonucu araç dışına fırlayan bir bebeğin solunumunun olmadığını tespit eden ilk yardımcı, 2 kurtarıcı solunum verdikten sonra kalp basısı uygulamak için bebeğe pozisyon vermiştir.\n\nİlk yardımcı, bir elinin orta ve yüzük parmağını görseldeki hangi bölgeye yerleştirmelidir?",
-    "image_url": "mebornek3.png",
+    "image_url": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek3.png",
     "options": [
       { "text": "I", "isTrue": false },
       { "text": "II", "isTrue": false },
@@ -55,7 +55,7 @@
     "id": 8404,
     "category": "İlk Yardım",
     "question": "Görseldeki kanama türünde yaralıya ilk yardım olarak hangisinin yapılması yanlıştır?",
-    "image_url": "mebornek5.png",
+    "image_url": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek5.png",
     "options": [
       { "text": "Kanayan bölgeyi yukarı kaldırmak", "isTrue": false },
       { "text": "Kanayan yer üzerine temiz bir bez koyarak baskı uygulamak", "isTrue": false },
@@ -68,7 +68,7 @@
     "id": 8405,
     "category": "İlk Yardım",
     "question": "Görseldeki tespit yöntemi hangi kemiğin kırılması durumunda uygulanır?",
-    "image_url": "mebornek6.png",
+    "image_url": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek6.png",
     "options": [
       { "text": "Pazı", "isTrue": false },
       { "text": "Boyun", "isTrue": false },
@@ -94,7 +94,7 @@
     "id": 8407,
     "category": "İlk Yardım",
     "question": "Görseldeki pozisyon hangi durumdaki yaralıya uygulanır?",
-    "image_url": "mebornek8.png",
+    "image_url": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek8.png",
     "options": [
       { "text": "Bilinci kapalı, solunum ve nabzı olan", "isTrue": true },
       { "text": "Bacak bölgesinde deri ve kemik bütünlüğü bozulmuş olan", "isTrue": false },
@@ -122,10 +122,10 @@
     "question": "Kaza yapmış bir aracı gören ilk yardımcı, kendisinin ve çevrenin güvenliğini sağladıktan sonra araç sürücüsünün bilincinin kapalı, solunumunun olmadığını ve kazazedenin ayaklarının pedala sıkışmamış olduğunu tespit etmiştir.\n\nBuna göre, ilk yardımcının kazazedeyi araç içerisinden çıkarırken uygulaması gereken doğru teknik hangisidir?",
     "image_url": null,
     "options": [
-      { "text": "mebornek10a.png", "isTrue": false },
-      { "text": "mebornek10b.png", "isTrue": true },
-      { "text": "mebornek10c.png", "isTrue": false },
-      { "text": "mebornek10d.png", "isTrue": false }
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek10a.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek10b.png", "isTrue": true },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek10c.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek10d.png", "isTrue": false }
     ],
     "description": "Araçtan yaralı çıkarma işleminde kullanılan Rentek manevrası, yaralının baş-boyun-gövde eksenini koruyarak taşınmasını sağlar. Doğru teknikte (Görsel B), ilk yardımcı yaralıya arkadan yaklaşır, kollarını yaralının koltuk altlarından geçirir, bir eliyle yaralının çenesini, diğer eliyle ise kolunu kavrayarak başını kendi göğsüne sabitler ve dikkatlice dışarı çeker."
   },
@@ -161,10 +161,10 @@
     "question": "Aralıklı yanıp sönen kırmızı ışık, trafik işaretlerinden hangisi ile aynı anlamdadır?",
     "image_url": null,
     "options": [
-      { "text": "meb7soru18a.png", "isTrue": true },
-      { "text": "meb2soru57c.png", "isTrue": false },
-      { "text": "meb5soru21b.png", "isTrue": false },
-      { "text": "meb5soru21c.png", "isTrue": false }
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/meb7soru18a.png", "isTrue": true },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/meb2soru57c.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/meb5soru21b.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/meb5soru21c.png", "isTrue": false }
     ],
     "description": "Trafik ışıklarından aralıklı yanıp sönen kırmızı ışık, 'DUR' levhası ile aynı anlama gelir. Sürücü kavşakta durmalı, yolu kontrol etmeli ve yol müsaitse geçiş yapmalıdır. Aralıklı yanan sarı ışık ise 'Yol Ver' levhası ile aynı anlama gelir."
   },
@@ -172,7 +172,7 @@
     "id": 8413,
     "category": "Trafik ve Çevre",
     "question": "Görseldeki mavi renkli aracın sürücüsü nasıl davranmalıdır?",
-    "image_url": "mebornek15.png",
+    "image_url": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek15.png",
     "options": [
       { "text": "En sol şeride geçmeli", "isTrue": false },
       { "text": "Yavaşlayarak sağ şeride girmeli", "isTrue": true },
@@ -187,10 +187,10 @@
     "question": "Hangisi \"köprü yaklaşımı\" levhasıdır?",
     "image_url": null,
     "options": [
-      { "text": "meb7soru17a.png", "isTrue": false },
-      { "text": "meb7soru17b.png", "isTrue": false },
-      { "text": "meb3soru43c.png", "isTrue": false },
-      { "text": "meb7soru17d.png", "isTrue": true }
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/meb7soru17a.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/meb7soru17b.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/meb3soru43c.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/meb7soru17d.png", "isTrue": true }
     ],
     "description": "Görsel D'deki siyah-beyaz çizgili levhalar 'Köprü Başı Levhaları' olarak adlandırılır ve köprü, menfez gibi daralan yol kesimlerinin başına konulur. Bu levhalar köprüye yaklaşıldığını ve yolun daralabileceğini belirtir."
   },
@@ -198,7 +198,7 @@
     "id": 8415,
     "category": "Trafik ve Çevre",
     "question": "Görseldeki sürücü trafik işaretini farketmeden yoluna devam ederse numaralanmış ifadelerden hangilerinin olma ihtimali vardır?\n\nI. Yükün hasar görmesi\nII. Direksiyon hâkimiyetinin kaybolması\nIII. Araç aksının kırılması veya amortisörlerin arızalanması",
-    "image_url": "mebornek17.png",
+    "image_url": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek17.png",
     "options": [
       { "text": "I ve II", "isTrue": false },
       { "text": "I ve III", "isTrue": false },
@@ -224,7 +224,7 @@
     "id": 8417,
     "category": "Trafik ve Çevre",
     "question": "Görseldeki kırmızı renkli aracın sürücüsü nasıl davranmalıdır?",
-    "image_url": "mebornek19.png",
+    "image_url": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek19.png",
     "options": [
       { "text": "Sol şeride geçip beklemeli", "isTrue": false },
       { "text": "Önündeki aracın geçişini beklemeli", "isTrue": true },
@@ -289,7 +289,7 @@
     "id": 8422,
     "category": "Trafik ve Çevre",
     "question": "Görselde iki yönlü ve üç şeritli kara yolu bölümünde seyreden araçlar verilmiştir. Yol çizgilerine göre hangi numaralı araç sürücüleri hatalı sollama yapmaktadır?",
-    "image_url": "mebornek24.png",
+    "image_url": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek24.png",
     "options": [
       { "text": "1 ve 2", "isTrue": false },
       { "text": "1 ve 3", "isTrue": true },
@@ -447,10 +447,10 @@
     "question": "Motor parçalarından hangisinin işlevini kaybetmesi durumunda motorun içine su sızar?",
     "image_url": null,
     "options": [
-      { "text": "mebornek36a.png", "isTrue": true },
-      { "text": "mebornek36b.png", "isTrue": false },
-      { "text": "mebornek36c.png", "isTrue": false },
-      { "text": "mebornek36d.png", "isTrue": false }
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek36a.png", "isTrue": true },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek36b.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek36c.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek36d.png", "isTrue": false }
     ],
     "description": "Görsel A'da gösterilen silindir kapak contası, motor bloğu ile silindir kapağı arasında sızdırmazlık sağlar. Bu conta, motorun soğutma suyu kanalları ile yanma odalarını birbirinden ayırır. Conta yandığında veya hasar gördüğünde, soğutma suyu motorun içine sızar."
   },
@@ -458,7 +458,7 @@
     "id": 8435,
     "category": "Araç Tekniği",
     "question": "Şekildeki uyarı ışığının araç gösterge panelinde yanması aracın hangi sisteminde arıza olduğunu belirtir?",
-    "image_url": "mebornek37.png",
+    "image_url": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek37.png",
     "options": [
       { "text": "Marş", "isTrue": false },
       { "text": "Şarj", "isTrue": false },
@@ -471,7 +471,7 @@
     "id": 8436,
     "category": "Araç Tekniği",
     "question": "Şekildeki uyarı ışığı araç gösterge panelinde yandığında sürücü ne yapmalıdır?",
-    "image_url": "mebornek38.png",
+    "image_url": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek38.png",
     "options": [
       { "text": "Aracı durdurup motoru stop etmeli", "isTrue": false },
       { "text": "Araç motoruna yağ ilave etmeli", "isTrue": false },
@@ -538,10 +538,10 @@
     "question": "Aracın motoru yağlama yapmadığında gösterge panelinde hangi lamba yanar?",
     "image_url": null,
     "options": [
-      { "text": "mebornek43a.png", "isTrue": false },
-      { "text": "mebornek43b.png", "isTrue": false },
-      { "text": "mebornek43c.png", "isTrue": false },
-      { "text": "mebornek43d.png", "isTrue": true }
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek43a.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek43b.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek43c.png", "isTrue": false },
+      { "text": "https://ehliyetim.github.io/konu-anlatimi/images/mebornek43d.png", "isTrue": true }
     ],
     "description": "Görsel D'deki yağdanlık simgesi, motor yağı basıncı uyarı lambasıdır. Bu lamba, motorun yeterli yağlama yapmadığını gösterir ve yandığında araç derhal durdurulmalıdır."
   },
