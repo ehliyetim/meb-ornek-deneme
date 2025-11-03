@@ -4,7 +4,7 @@
     "id": 8350,
     "category": "Trafik ve Çevre Bilgisi",
     "question": "Videoya göre sürücü nasıl davranmalıdır?",
-    "image_url": "https://youtu.be/yEZgZ556Wto",
+    "image_url": "https://ehliyetim.github.io/develop/anim/hararet_araba.mp4",
     "options": [
       { "text": "Sabit hızla aynı şeritte yoluna devam etmeli", "isTrue": false },
       { "text": "Sol şeride geçip derhal servise gitmeli", "isTrue": false },
